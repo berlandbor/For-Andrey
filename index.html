@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытка "С днём рождения, Андрей!"</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #055856, #ffffff);
+        }
+        h2{color: #ffffff;}
+        h2 {
+  animation: colorChange 2s infinite; /* Пример анимации изменения цвета в течение 2 секунд, бесконечно повторяется */
+}
+
+@keyframes colorChange {
+  0% {
+    color: white; /* Начальный цвет текста */
+  }
+  50% {
+    color: #2b4740; /* Цвет текста через половину времени анимации */
+  }
+  100% {
+    color: white; /* Конечный цвет текста, возвращаемся к начальному состоянию */
+  }
+}
+        .message{color:#eaf7c3;
+          
+        }
+        .card {
+            background-color: #60aeac;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .card:hover .message {
+            opacity: 1;
+        }
+        .message {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>С Днём Рождения, Андрей!</h2>
+        <h2>▶️</h2>
+        <div class="message">
+            Пусть этот день принесет радость, удачу и множество приятных моментов! <hr>С уважением и наилучшими пожеланиями твой друг А. Берлин!
+        </div>
+         
+        <audio id="birthdaySong">
+    <source src="andrey-s-dnem-rozhdeniya--pust-vse-budet-horosho.mp3" type="audio/mp3">
+    Ваш браузер не поддерживает аудио элемент.
+</audio>
+    </div>
+
+    <script>
+        document.querySelector('.card').addEventListener('click', function() {
+            let message = document.querySelector('.message');
+            message.style.opacity = message.style.opacity == 1 ? 0 : 1;
+        });
+        document.querySelector('.card').addEventListener('click', function() {
+    let audioElement = document.getElementById('birthdaySong');
+
+    if (audioElement.paused) {
+        audioElement.play();
+    } else {
+        audioElement.pause();
+    }
+});
+    </script>
+</body>
+</html>
